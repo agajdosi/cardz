@@ -46,7 +46,7 @@
 <svelte:head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NoneCard</title>
+  <title>NoneCard - Customers of the World, Unite!</title>
 </svelte:head>
 
 <div class="container">
@@ -56,7 +56,6 @@
     NoneCard allows you to share customer cards in the community.
     You can easily and freely access and use the cards.
     And make it harder for companies to analyze anything meaningful from the stolen data.
-    Customers of the world, unite!
   </p>
 
   <details id="manifesto">
@@ -81,12 +80,13 @@
       Let's obfuscate the data of others and let the others obfuscate yours.
       Once the card purchases meat in Prague, then seconds later it makes a vegan purchase in Ostrava.
       Nonsense to the companies, value to the people!
+      Customers of the world, unite!
     </p>
   </details>
 
-  <h3>Add your customer card</h3>
+  <h2>Add your customer card</h2>
   <p id="add">
-    If you want to add your customer card, send its photo to: <a href="mailto:nonecard@gajdosik.org">nonecard@gajdosik.org</a>.<br>
+    If you want to add your customer card, please send its photo to: <a href="mailto:nonecard@gajdosik.org">nonecard@gajdosik.org</a>.<br>
   </p>
 
   <h2>Available Cards</h2>
