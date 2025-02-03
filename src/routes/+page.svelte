@@ -32,9 +32,7 @@
         });
       }
     };
-
     renderBarcode({ code, type });
-
     return {
       update(newParams) {
         renderBarcode(newParams);
@@ -49,7 +47,7 @@
   <title>NoneCard - Customers of the World, Unite!</title>
 </svelte:head>
 
-<div class="container">
+
   <h1>NoneCard</h1>
 
   <p>
@@ -105,21 +103,10 @@
     </ul>
   {/if}
 
-  <footer>
-    <div>{new Date().getFullYear()}, AndyG. Copyleft reserved.</div>
-    <div>help development at: <a href="https://github.com/agajdosi/nonecard">github.com/agajdosi/nonecard</a></div>
-  </footer>
-</div>
 
 <style>
   /* Center the container horizontally and set a max width */
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-    font-family: sans-serif;
-    line-height: 1.6;
-  }
+
 
   h1, h2, h3 {
     text-align: center;
@@ -162,14 +149,4 @@
     text-align: center;
   }
 
-  footer {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 1rem;
-    border-top: 1px solid #ddd;
-    text-align: center;
-    color: #666;
-    font-size: 0.9rem;
-  }
 </style>
