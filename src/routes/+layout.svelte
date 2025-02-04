@@ -16,8 +16,8 @@
     </main>
 
     <footer>
-        <div>{new Date().getFullYear()}, AndyG. Copyleft reserved.</div>
-        <div>help development at: <a href="https://github.com/agajdosi/nonecard">github.com/agajdosi/nonecard</a></div>
+        <div>{new Date().getFullYear()}, AG. Copyleft reserved.</div>
+        <div><a href="https://github.com/agajdosi/nonecard">github.com/agajdosi/nonecard</a></div>
     </footer>
 </div>
 
@@ -35,7 +35,7 @@
   }
 
 footer {
-    margin-top: 2rem;
+    margin-top: 5rem;
     display: flex;
     justify-content: space-between;
     padding-top: 0.7rem;

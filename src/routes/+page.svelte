@@ -2,6 +2,7 @@
   import PocketBase from 'pocketbase';
   import JsBarcode from 'jsbarcode'
   import { onMount } from 'svelte';
+  import Artsclaimer from './Artsclaimer.svelte';
 
   let records = [];
   let error = null;
@@ -44,65 +45,55 @@
 <svelte:head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NoneCard - Customers of the World, Unite!</title>
+  <title>NoneCard - Nonsense to the companies, value to the people!</title>
 </svelte:head>
 
+<h1>NoneCard</h1>
 
-  <h1>NoneCard</h1>
+<p>
+  To be stalked or fined by a company?
+  None of that.
+  NoneCard lets you use shared customer cards, making it harder for companies to extract meaningful insights from the data they steal—while still keeping the "club" prices.
+  Nonsense to the companies, value to the people!
+</p>
 
-  <p>
-    NoneCard allows you to share customer cards in the community.
-    You can easily and freely access and use the cards.
-    And make it harder for companies to analyze anything meaningful from the stolen data.
-  </p>
+<h2>Shared Customers Cards</h2>
+{#if error}
+  <p class="error">Failed to load records: {error}</p>
+{:else}
+  <ul>
+    {#each records as record}
+      {#if record.devel === false || window.location.hostname === 'localhost'}
+        <li>
+          <h2>{record.company} - {record.name} ({record.country})</h2>
+          <img use:barcode={{ code: record.code, type: record.type }} alt="Barcode for {record.code}"/>
+        </li>
+      {/if}
+    {/each}
+  </ul>
+{/if}
 
-  <details id="manifesto">
-    <summary>More info:</summary>
-    <h2>NoneCard Manifesto</h2>
-    <p>
-      Customer cards promise discounts, but in reality they just track the customers.
-      They intrude our privacy and suck data about our purchasing behaviour into clouds somewhere in a sec haven.
-      Customer cards are just a tool of surveillance capitalism.
-      No longer we are customers, we are tagged herds.
-    </p>
-    <p>
-      As if that wasn't shitty enough, it's also just extremely annoying to carry around customer cards.
-      To keep them. Search them in a wallet. To keep track of them.
-    </p>
-    <p>
-      And if you can't find a customer card, or simply don't have one, you get fined the "regular" price, which is out of touch with reality.
-      We are human beings, we have our dignity and it is our right not to be stalked.
-    </p>
-    <p>
-      Share and use cards to get the discount while contaminating the extracted data with random noise.
-      Let's obfuscate the data of others and let the others obfuscate yours.
-      Once the card purchases meat in Prague, then seconds later it makes a vegan purchase in Ostrava.
-      Nonsense to the companies, value to the people!
-      Customers of the world, unite!
-    </p>
-  </details>
-
-  <h2>Add your customer card</h2>
-  <p id="add">
-    If you want to add your customer card, please send its photo to: <a href="mailto:nonecard@gajdosik.org">nonecard@gajdosik.org</a>.<br>
-  </p>
-
-  <h2>Available Cards</h2>
-  {#if error}
-    <p class="error">Failed to load records: {error}</p>
-  {:else}
-    <ul>
-      {#each records as record}
-        {#if record.devel === false || window.location.hostname === 'localhost'}
-          <li>
-            <h2>{record.company} - {record.name} ({record.country})</h2>
-            <img use:barcode={{ code: record.code, type: record.type }} alt="Barcode for {record.code}"/>
-          </li>
-        {/if}
-      {/each}
-    </ul>
-  {/if}
-
+<div id="contribute">
+<h2>How to help</h2>
+<p>
+  <b>A. Spread the word:</b>
+  There's no netarte útil without viewers.
+  Telling your friends about NoneCard is great.
+  Thx!
+</p>
+<p>
+  <b>C. Share your card:</b>
+  If you want to add your customer card, please send its photo to: <a href="mailto:nonecard@gajdosik.org">nonecard@gajdosik.org</a>.
+</p>
+<p>
+  <b>A. Join DB team:</b>
+  If you wish you can request a login to the database and add the cards yourself.
+</p>
+<p>
+  <b>B. Develop Code:</b>
+  Fork it, improve it, make PR. Thanks! Or just run your own instance. Great! Here's <a href="https://github.com/agajdosi/nonecard">repo</a>.
+</p>
+</div>
 
 <style>
   /* Center the container horizontally and set a max width */
@@ -111,9 +102,18 @@
   h1, h2, h3 {
     text-align: center;
   }
+  h2 {
+    margin-top: 5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    padding: 0;
+  }
 
   p {
-    text-align: justify;
+    text-align: center;
   }
 
   ul {
@@ -145,8 +145,8 @@
     border-radius: 5px;
   }
 
-  #add{
-    text-align: center;
+  #contribute > p{
+    text-align: justify;
   }
 
 </style>
