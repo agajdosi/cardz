@@ -15,7 +15,7 @@
     try {
       // Fetch all records from the collection 'cardz'
       records = await pb.collection('cardz').getFullList({
-        sort: '-created',
+        sort: '-priority,updated',
       });
     } catch (err) {
       error = err.message;
