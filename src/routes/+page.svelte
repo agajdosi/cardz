@@ -64,8 +64,8 @@
   <ul>
     {#each records as record}
       {#if record.devel === false || window.location.hostname === 'localhost'}
-        <li>
-          <h2>{record.company} - {record.name} ({record.country})</h2>
+        <li class="card">
+          <h3>{record.company} - {record.name} ({record.country})</h3>
           <img use:barcode={{ code: record.code, type: record.type }} alt="Barcode for {record.code}"/>
         </li>
       {/if}
@@ -138,11 +138,9 @@
     text-decoration: underline;
   }
 
-  details {
-    margin: 1rem 0;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+  .card h3 {
+    font-size: 1.6rem;
+    margin-top: 1rem;
   }
 
   #contribute > p{
